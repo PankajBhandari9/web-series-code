@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Switch, Route} from 'react-router-dom'
+import Netflix from './netflix/Netflix'
+import Amazon from './amazon/Amazon';
+import Hotstar from './hotstar/Hotstar'
+import Error from './Error';
+import Menu from './Menu';
+import Footer from './Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+const App=()=>{
+  return(
+    <>
+      <Menu/>
+      <Switch>
+        <Route exact path='/' component={Netflix}/>
+        <Route exact path='/amazon' component={Amazon}/>
+        <Route exact path='/hotstar' component={Hotstar}/>
+        <Route component={Error}/>
+      </Switch>
+      <Footer/>
+    </>
   );
 }
+
+
 
 export default App;
